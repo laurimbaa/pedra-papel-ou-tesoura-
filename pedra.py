@@ -1,49 +1,53 @@
+import random
 
-lista1= ["pedra", "papel","tesoura"]
-import random 
-item_sorteado = random.choice(lista1) 
+lista1 = ["pedra", "papel", "tesoura"]
 pts_pc = 0
 pts_lau = 0
 
-while pts_lau < 3 or pts_pc < 3:
+while pts_lau < 3 and pts_pc < 3:
+    item_sorteado = random.choice(
+        lista1
+    )  
     escolha = input("pedra, papel, tesoura: ")
     print(f"O item sorteado foi {item_sorteado}")
-    print(f"Placar é Laura {pts_lau} vs PC{pts_pc}")
+   
     if escolha == "pedra":
         if item_sorteado == "tesoura":
-            pts_lau+=1
+            pts_lau += 1
         elif item_sorteado == "papel":
-            pts_pc+=1
-        elif item_sorteado == "pedra":
-            print("empate")
+            pts_pc += 1
+        else:
+            print("Empate")
 
-    if escolha == "tesoura":
+    elif escolha == "tesoura":
         if item_sorteado == "pedra":
-            pts_pc+=1
+            pts_pc += 1
         elif item_sorteado == "papel":
-            pts_lau+=1
-        elif item_sorteado == "tesoura":
-            print("empate!")
-    
+            pts_lau += 1
+        else:
+            print("Empate!")
 
-    if escolha == "papel":
+    elif escolha == "papel":
         if item_sorteado == "tesoura":
-            pts_pc+=1
+            pts_pc += 1
         elif item_sorteado == "pedra":
-            pts_lau+=1
-        elif item_sorteado == "papel":
-            print("empate!")
+            pts_lau += 1
+        else:
+            print("Empate!")
 
- 
+    print(f"Placar é Laura: {pts_lau} vs PC: {pts_pc}")
     
+
 
 def placar():
-    if pts_lau==3:
+    if pts_lau == 3:
         print("Laura venceu")
-    if pts_pc == 3:
+    elif pts_pc == 3:
         print("O pc venceu")
-    return 
-  
+
+
+placar() 
+
 
 
 
